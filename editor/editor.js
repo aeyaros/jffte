@@ -1,6 +1,16 @@
-/*========================================================
-Andrew Yaros - John Fry's Food Truck Extravaganza - Editor
-========================================================*/
+/* 
+========================================
+Team 94 CI 103 Spring 2018 Final Project
+========================================
+Andrew Yaros
+Jacob Proctor
+Jung Ho Baek
+Riley Faulkner
+========================================
+John Fry's Food Truck Extravaganza!
+Editor Javascript code file
+========================================
+*/
 
 // aey - Initialize Firebase
 var config = {

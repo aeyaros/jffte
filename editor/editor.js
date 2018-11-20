@@ -51,7 +51,7 @@ var blankTruckObject = {
 		"open": {"hour":"00", "minute":"00"},
 		"closed": {"hour":"00", "minute":"00"}
 	},
-	"menu": []/* contains menu items */
+	"menu": [0]/* contains menu items */
 };
 
 var blankFoodItemObject = {

@@ -1,0 +1,53 @@
+/* Andrew Yaros - CSS - JFFTE Editor */
+html, body {
+	height: 99%;
+	width: 99%;
+} body {
+	background-color: #fafafa;
+	font-size: 11pt;
+	font-family: sans-serif;
+	max-width: 1000px;
+} #mainbody {
+	width: 100%;
+	min-height: 480px;
+} #display{
+	height:100%;
+} #control {
+	width: 100%;
+	min-width: 512px;
+} .messageArea, #displayArea {
+	border: 1px solid #dddddd;
+	overflow: auto;
+} .messageArea{
+	max-width: 100%;
+	background-color: #ffeedd;
+	height: 32px;
+} #displayArea {
+	min-width: 256px; /* gray area where trucks are displayed */
+	background-color: #eeeeee;
+	height: 100%;
+	margin-right: 15px;
+} #additionTable {
+	overflow-x: auto;
+	border: none;
+	vertical-align: bottom;
+} .addTableTextArea {
+	width: 140px;
+	resize: none;
+} .addTableCell {
+	vertical-align: bottom;
+} button {
+	width: 200px;
+	height: 32px;
+	font-size: 12pt;
+	color: black;
+	background-color: white;
+	border: 1.5px solid black;
+	border-radius: 20px;
+} #savebutton {
+	color: black;
+	background-color: yellow;
+} #additionTable td {
+	background-color: #f2f2f2;
+	padding: 10px;
+}

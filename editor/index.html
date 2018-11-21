@@ -32,141 +32,140 @@
 	<body>
 		<table id="mainbody">
 			<tr>
-				<td colspan="2">
-					<h1>Truck Database Editor Tool</h1>
-					<h3>John Fry's Food Truck Extravaganza</h3>
-					<br/>
+				<td>
+					<h2>Truck&nbsp;Database<br/>
+					Editor&nbsp;Tool</h2>
+					<h3>John&nbsp;Fry's Food&nbsp;Truck Extravaganza</h3>
+				</td>
+				<td style="text-align: center;">
+					<script> loadTrucks(); //automatically load trucks into local database</script>
+					
+					<button id="savebutton" onclick="saveTrucks()">Save trucks to firebase</button>
+					<span style="display: inline-block; width: 32px;"></span>
+					<button id="refreshbutton" onclick="printTrucks()">Refresh</button>
+					 <br/> <br/><div class="messageArea"></div>
 				</td>
 			</tr>
 			<tr>
 				<td id="display">
-					<div id="displayArea"></div><br/>
+					<div id="displayArea"></div>
 					<script>
 						printTrucks();
 					</script>
 				</td>
 				<td id="control">
-					<div class="messageArea"></div><br/>
-					<script>
-						loadTrucks(); //automatically load the trucks into the database
-					</script>
-					<button id="refreshbutton" onclick="printTrucks()">Refresh</button><br/><br/>
-					<button id="savebutton" onclick="saveTrucks()">Save trucks to firebase</button>
-					<!--<button onclick="loadTrucks()">Load trucks from firebase</button>-->
+					<div id="controldiv">
+						<h2> Area to add trucks</h2>
+						<h3> Use to add a truck with the following:</h3>
+						<p>
+						<ul style="font-weight:normal">
+							<li> Name of the truck </li>
+							<li> Description of where truck is or what it is next to </li>
+							<li> Actual street address </li>
+							<li> Cuisine: Description of what kinds of food truck serves </li>
+							<li> Latitude: must be a number </li>
+							<li> Longitude: must be a number </li>
+							<li> Hour open: must be a number between 0 and 24 </li>
+							<li> Minute open: must be a number between 0 and 59</li>
+							<li> Hour closed: must be a number between 0 and 24 </li>
+							<li> Minute closed: must be a number between 0 and 59</li>
+						</ul>
+						
+						</p><hr>
+						<h3>Add a new truck with an ID:</h3>
+						<div id="additionTable"><table style="width:100%;">
+							<tr>
+								<td class="addTableCell" >ID: <br/><textarea class="addTableTextArea" id="id"></textarea> </td>
+								<td class="addTableCell" >Name: <br/><textarea class="addTableTextArea" id="name"></textarea> </td>
+								<td class="addTableCell" >Location description: <br/><textarea class="addTableTextArea" id="loca"></textarea> </td>
+							</tr><tr>
+								<td class="addTableCell" >Street address: <br/><textarea class="addTableTextArea" id="addr"></textarea> </td>
+								<td class="addTableCell" >Cuisine: <br/><textarea class="addTableTextArea" id="cuis"></textarea> </td>
+								<td class="addTableCell" >Coordinate lat: <br/><textarea class="addTableTextArea" id="lat"></textarea> </td>
+							</tr><tr>
+								<td class="addTableCell" >Coordinate lng: <br/><textarea class="addTableTextArea" id="lng"></textarea> </td>
+								<td class="addTableCell" >Hour Open: <br/><textarea class="addTableTextArea" id="hourO"></textarea> </td>
+								<td class="addTableCell" >Minute Open: <br/><textarea class="addTableTextArea" id="minuteO"></textarea> </td>
+							</tr><tr>
+								<td class="addTableCell" >Hour Closed: <br/><textarea class="addTableTextArea" id="hourC"></textarea> </td>
+								<td class="addTableCell" >Minute Closed: <br/><textarea class="addTableTextArea" id="minuteC"></textarea> </td>
+								<td class="addTableCell"></td>
+							<tr>
+						</table></div>
+						<br/>		
+						<button onclick="addTruck()">Create Truck</button>
+						<br/><br/>
+						<hr><h3>Add menu items to a truck with an ID</h3>
+						<div id="additionTable"><table style="width:100%;"><tr>
+							<td class="addTableCell" >Truck ID: <br/><textarea class="addTableTextArea" id="id2"></textarea> </td>
+							<td class="addTableCell" >Item name: <br/><textarea class="addTableTextArea" id="itemName"></textarea> </td>
+							<td class="addTableCell" >Item price:<br/><textarea class="addTableTextArea" id="itemPrice"></textarea> </td>
+						<tr></table></div>
+						
+						<br/><br/>
+						<button onclick="addMenuItem()">Add menu item</button>
+						
+						<br/><br/>
+						<hr class="line1"><h2>Remove items:</h2>
+						<hr>
+						<h3>Remove truck with ID:</h3><br/>
+						<div id="additionTable"><table style="width:100%;">
+							<tr>
+								<td>
+									Truck ID: <br/>
+									<textarea class="addTableTextArea" id="removeTruck"></textarea>
+								</td>
+							</tr>
+						</table></div>
+						<br/><br/>
+						<button onclick="removeTruck()">Delete truck</button>
+						<br/><br/>
+						<hr>
+						<h3>Remove menu Item:</h3>
+						<div id="additionTable"><table style="width: 100%;">
+							<tr>
+								<td>
+									Truck ID: <br/>
+									<textarea class="addTableTextArea" id="removeMenuItemID"></textarea>
+								</td><td>
+									Menu item name: <br/>
+									<textarea class="addTableTextArea" id="removeMenuItemName"></textarea>
+								</td>
+							</tr>
+						</table></div>
+						<br/><button onclick="removeMenuItem()">Delete item</button>
 
-					<h2> Area to add trucks</h2>
-					<h3> Use to add a truck with the following:</h3>
-					<p>
-					<ul style="font-weight:normal">
-						<li> Name of the truck </li>
-						<li> Description of where truck is or what it is next to </li>
-						<li> Actual street address </li>
-						<li> Cuisine: Description of what kinds of food truck serves </li>
-						<li> Latitude: must be a number </li>
-						<li> Longitude: must be a number </li>
-						<li> Hour open: must be a number between 0 and 24 </li>
-						<li> Minute open: must be a number between 0 and 59</li>
-						<li> Hour closed: must be a number between 0 and 24 </li>
-						<li> Minute closed: must be a number between 0 and 59</li>
-					</ul>
-					
-					</p><hr>
-					<h3>Add a new truck with an ID:</h3>
-					<div id="additionTable"><table style="width:100%;">
-						<tr>
-							<td class="addTableCell" >ID: <br/><textarea class="addTableTextArea" id="id"></textarea> </td>
-							<td class="addTableCell" >Name: <br/><textarea class="addTableTextArea" id="name"></textarea> </td>
-							<td class="addTableCell" >Location description: <br/><textarea class="addTableTextArea" id="loca"></textarea> </td>
-						</tr><tr>
-							<td class="addTableCell" >Street address: <br/><textarea class="addTableTextArea" id="addr"></textarea> </td>
-							<td class="addTableCell" >Cuisine: <br/><textarea class="addTableTextArea" id="cuis"></textarea> </td>
-							<td class="addTableCell" >Coordinate lat: <br/><textarea class="addTableTextArea" id="lat"></textarea> </td>
-						</tr><tr>
-							<td class="addTableCell" >Coordinate lng: <br/><textarea class="addTableTextArea" id="lng"></textarea> </td>
-							<td class="addTableCell" >Hour Open: <br/><textarea class="addTableTextArea" id="hourO"></textarea> </td>
-							<td class="addTableCell" >Minute Open: <br/><textarea class="addTableTextArea" id="minuteO"></textarea> </td>
-						</tr><tr>
-							<td class="addTableCell" >Hour Closed: <br/><textarea class="addTableTextArea" id="hourC"></textarea> </td>
-							<td class="addTableCell" >Minute Closed: <br/><textarea class="addTableTextArea" id="minuteC"></textarea> </td>
-							<td class="addTableCell"></td>
-						<tr>
-					</table></div>
-					<br/>		
-					<button onclick="addTruck()">Create Truck</button>
-					<br/><br/>
-					<hr><h3>Add menu items to a truck with an ID</h3>
-					<div id="additionTable"><table style="width:100%;"><tr>
-						<td class="addTableCell" >Truck ID: <br/><textarea class="addTableTextArea" id="id2"></textarea> </td>
-						<td class="addTableCell" >Item name: <br/><textarea class="addTableTextArea" id="itemName"></textarea> </td>
-						<td class="addTableCell" >Item price:<br/><textarea class="addTableTextArea" id="itemPrice"></textarea> </td>
-					<tr></table></div>
-					
-					<br/><br/>
-					<button onclick="addMenuItem()">Add menu item</button>
-					
-					<br/><br/>
-					<hr><hr><hr><h2>Remove items:</h2>
-					<hr>
-					<h3>Remove truck with ID:</h3><br/>
-					<div id="additionTable"><table style="width:100%;">
-						<tr>
-							<td>
-								Truck ID: <br/>
-								<textarea class="addTableTextArea" id="removeTruck"></textarea>
-							</td>
-						</tr>
-					</table></div>
-					<br/><br/>
-					<button onclick="removeTruck()">Delete truck</button>
-					<br/><br/>
-					<hr>
-					<h3>Remove menu Item:</h3>
-					<div id="additionTable"><table style="width: 100%;">
-						<tr>
-							<td>
-								Truck ID: <br/>
-								<textarea class="addTableTextArea" id="removeMenuItemID"></textarea>
-							</td><td>
-								Menu item name: <br/>
-								<textarea class="addTableTextArea" id="removeMenuItemName"></textarea>
-							</td>
-						</tr>
-					</table></div>
-					<br/><button onclick="removeMenuItem()">Delete item</button>
-
-					<br/><br/>
-					<hr><hr><hr><h2> Area to edit trucks</h2>
-					<br/>
-					
-					<div id="additionTable"><table style="width:100%;">
-						<tr>
-							<td>
-								Truck ID: <br/><textarea class="addTableTextArea" id="id3"></textarea>
-							</td><td>
-								Select field:<br/>
-								<div><select id="editDrop">
-									<option value="name">Name</option>
-									<option value="loca">Location</option>
-									<option value="addr">Address</option>
-									<option value="cuis">Cuisine</option>
-									<option value="lat">Latitude</option>
-									<option value="lng">Longitude</option>
-									<option value="hrO">Hour open</option>
-									<option value="minO">Minute open</option>
-									<option value="hrC">Hour closed</option>
-									<option value="minC">Minute closed</option>
-								</select></div>
-							</td><td>
-								Enter new text:<br/>
-								<textarea class="addTableTextArea" id="newField"></textarea>
-							</td>
-						</tr>
-					</table></div>
-					<br/><br/><button onclick="editTruck()">Submit</button>				
-					
-					<br/><br/>
-					<hr>
-					<div class="messageArea"></div><br/>	
+						<br/><br/>
+						<hr class="line1"><h2> Area to edit trucks</h2>
+						<br/>
+						
+						<div id="additionTable"><table style="width:100%;">
+							<tr>
+								<td>
+									Truck ID: <br/><textarea class="addTableTextArea" id="id3"></textarea>
+								</td><td>
+									Select field:<br/>
+									<div><select id="editDrop">
+										<option value="name">Name</option>
+										<option value="loca">Location</option>
+										<option value="addr">Address</option>
+										<option value="cuis">Cuisine</option>
+										<option value="lat">Latitude</option>
+										<option value="lng">Longitude</option>
+										<option value="hrO">Hour open</option>
+										<option value="minO">Minute open</option>
+										<option value="hrC">Hour closed</option>
+										<option value="minC">Minute closed</option>
+									</select></div>
+								</td><td>
+									Enter new text:<br/>
+									<textarea class="addTableTextArea" id="newField"></textarea>
+								</td>
+							</tr>
+						</table></div>
+						<br/><br/><button onclick="editTruck()">Submit</button>
+						<div style="width: 100%; height: 100px;">
+					</div>
 				</td>
 			</tr>
 		</table>

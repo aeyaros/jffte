@@ -18,17 +18,26 @@ html, body {
 	background-color: #fafafa;
 	font-size: 11pt;
 	font-family: sans-serif;
-	max-width: 1000px;
 } #mainbody {
+	table-layout: auto;
 	width: 100%;
-	min-height: 480px;
+	height: 100%;
 } #display{
+	width: 30%;
 	height:100%;
+	overflow: hidden;
 } #control {
-	width: 100%;
-	min-width: 512px;
-} .messageArea, #displayArea {
+	width: 70%;
+	height: 100%;
+	overflow: hidden;
+} #controldiv {
+	width: 98%;
+	padding-left: 2%;
+	height: 100%;
+	overflow-y: auto;
+} .messageArea, #displayArea, #controldiv {
 	border: 1px solid #dddddd;
+} .messageArea, #displayArea {
 	overflow: auto;
 } .messageArea {
 	max-width: 100%;
@@ -36,13 +45,13 @@ html, body {
 	background-color: #ffeedd;
 	height: 32px;
 } #displayArea {
-	min-width: 256px; /* gray area where trucks are displayed */
+	width: 98%;
+	padding-right: 2%;
 	color: #000000;
 	background-color: #eeeeee;
 	height: 100%;
 	margin-right: 15px;
 } #additionTable {
-	overflow-x: auto;
 	border: none;
 	vertical-align: bottom;
 } .addTableTextArea {
@@ -75,7 +84,8 @@ html, body {
 	background-color: #ff0000;
 } #additionTable td {
 	background-color: #f2f2f2;
-	padding: 10px;
+} hr.line1 {
+	border: 0;
+	height: 100px;
+	background: transparent;
 }
-
-

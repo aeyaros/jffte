@@ -30,12 +30,14 @@ html, body {
 } .messageArea, #displayArea {
 	border: 1px solid #dddddd;
 	overflow: auto;
-} .messageArea{
+} .messageArea {
 	max-width: 100%;
+	color: #000000;
 	background-color: #ffeedd;
 	height: 32px;
 } #displayArea {
 	min-width: 256px; /* gray area where trucks are displayed */
+	color: #000000;
 	background-color: #eeeeee;
 	height: 100%;
 	margin-right: 15px;

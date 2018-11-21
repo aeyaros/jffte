@@ -425,6 +425,19 @@ function getTruckString(i) {
 	return truckString;
 }
 
+//aey - flash an element
+function flashArea(IDorClass, colorflash, backgroundflash, colornormal, backgroundnormal) {
+	//aey - change colors of the element
+	$(IDorClass).css("color",colorflash);
+	$(IDorClass).css("background-color",backgroundflash);
+	//aey - wait a little bit, then change colors back to normal
+	setTimeout(function () {
+		$(IDorClass).css("color",colornormal);
+		$(IDorClass).css("background-color",backgroundnormal);
+	}, 500);
+
+}
+
 //aey - print out all information in the array
 function printTrucks() {
 	if(isArrayEmpty(localTruckArray)) {
@@ -443,10 +456,12 @@ function printTrucks() {
 
 function outputToDisplay (string) {
 	$("#displayArea").html(string);
+	flashArea("#displayArea", "#ffffff", "#111111", "#000000", "#eeeeee");
 }
 
 function outputMessage (string) {
 	$(".messageArea").html(string);
+	flashArea(".messageArea", "#ffffff", "#001122", "#000000","#ffeedd");
 }
 
 //aey - given an id, remove a truck

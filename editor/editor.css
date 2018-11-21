@@ -56,6 +56,10 @@ html, body {
 	background-color: white;
 	border: 1.5px solid black;
 	border-radius: 20px;
+} button:hover {
+	color: white;
+	background-color: black;
+	border: 1.5px solid gray;
 } #savebutton {
 	color: black;
 	background-color: yellow;

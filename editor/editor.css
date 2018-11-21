@@ -59,11 +59,21 @@ html, body {
 } button:hover {
 	color: white;
 	background-color: black;
-	border: 1.5px solid gray;
 } #savebutton {
 	color: black;
-	background-color: yellow;
+	background-color: #aaffaa;
+} #savebutton:hover {
+	color: white;
+	background-color: #00aa00;
+} #refreshbutton {
+	color: black;
+	background-color: #ff9999;
+} #refreshbutton:hover {
+	color: white;
+	background-color: #ff0000;
 } #additionTable td {
 	background-color: #f2f2f2;
 	padding: 10px;
 }
+
+

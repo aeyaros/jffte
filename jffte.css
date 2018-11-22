@@ -24,7 +24,7 @@ html, body {
 body {
 	margin: auto;
 	color: white;
-	background-color: rgb(4,42,76);
+	background-color: rgb(4,42,76); /*#042A4C*/
 	font-family: 'Crimson Text', serif;
 	font-size: 14pt;
 }

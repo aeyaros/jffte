@@ -86,9 +86,9 @@ function loadTrucks() {
 	// aey - loop through the array in the realtime database
 	let downloadedData = firebase.database().ref("JSONarray").orderByKey();
 	localTruckArray = [0];
-	let index = 0;
 	downloadedData.once("value")
 		.then(function(snapshot) {
+			let index = 0;
 			snapshot.forEach(function(childSnapshot) { // aey - loop through json array in database
 				//var field = childSnapshot.key;
 				let fieldData = childSnapshot.val();
@@ -341,7 +341,7 @@ function addTruck() {
 		}
 		printTrucks();
 		outputMessage("Added new truck successfully");
-	}		
+	}
 }
 
 

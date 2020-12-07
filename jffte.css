@@ -29,10 +29,9 @@ body {
 	font-size: 14pt;
 }
 #app { /* aey - the entirety of the app: the map, and the menus are enclosed within */
-	height: 97%;	/* aey - height of the body of the entire app */
-	width: 97%;
+	height: 100%;	/* aey - height of the body of the entire app */
+	width: 100%;
 	margin: auto;
-	float: top;	
 }
 h1, h2, h3, h4, h5, #header, #menuTitleText, #truckMenuTitleText, #menuSubtitleText {
 	color: rgb(253,193,57);
@@ -42,18 +41,17 @@ h1, h2, h3, h4, h5, #header, #menuTitleText, #truckMenuTitleText, #menuSubtitleT
 /* ==================== important containers ==================== */		
 
 #appMenuPanel, #appMapPanel {
-	float: left!important;
 	height: 100%;
-	width:	47%;
+	width:	50%;
 }
 
 #appMenuPanel { /* aey - table containg the button panel and menu panel */
 	 	/* aey - width of the side panel */
 	vertical-align: text-top;
-	margin: 1.5% 1.5% 1.5% 0;
+	margin: 0;
 }
 #appMapPanel {  /* aey - this is where the map div is located */
-	margin: 1.5% 0 1.5% 1.5%;
+	margin: 0;
 }
 		
 /* ==================== responsive formatting ==================== */

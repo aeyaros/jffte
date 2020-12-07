@@ -35,32 +35,30 @@ Javascript code file
 		function loadTrucks(callback=blankcallback) {
 			// aey - loop through the array in the realtime database
 			let downloadedData = firebase.database().ref("JSONarray").orderByKey();
-			//localTruckArray = [];
-			downloadedData.once("value")
-				.then(function(snapshot) {
-					snapshot.forEach(function(childSnapshot) { // aey - loop through json array in database
-						//aey - get data from the snapshot - each field is a truck, the data for that field is the dataset for the truck
-						//var field = childSnapshot.key;
-						let fieldData = childSnapshot.val();
-						//aey - create new truck object						
-						let newTruckObject = {
-							"id": fieldData.id,
-							"name": fieldData.name,
-							"location": fieldData.location, 
-							"address": fieldData.address,
-							"cuisine": fieldData.cuisine,
-							"lat": fieldData.lat,
-							"lng": fieldData.lng,
-							"time": {
-								"open": {"hour": fieldData.time.open.hour, "minute": fieldData.time.open.minute },
-								"closed": {"hour": fieldData.time.closed.hour, "minute": fieldData.time.closed.minute }
-							}, "menu": fieldData.menu /*  aey - contains menu items */
-						}; //aey - push the new truck to the local array
-						localTruckArray.push(newTruckObject);
+			downloadedData.once("value").then(function(snapshot) {
+				snapshot.forEach(function(childSnapshot) { // aey - loop through json array in database
+					//aey - get data from the snapshot - each field is a truck, the data for that field is the dataset for the truck
+					//var field = childSnapshot.key;
+					let fieldData = childSnapshot.val();
+					//aey - create new truck object
+					let newTruckObject = {
+						"id": fieldData.id,
+						"name": fieldData.name,
+						"location": fieldData.location,
+						"address": fieldData.address,
+						"cuisine": fieldData.cuisine,
+						"lat": fieldData.lat,
+						"lng": fieldData.lng,
+						"time": {
+							"open": {"hour": fieldData.time.open.hour, "minute": fieldData.time.open.minute },
+							"closed": {"hour": fieldData.time.closed.hour, "minute": fieldData.time.closed.minute }
+						}, "menu": fieldData.menu /*  aey - contains menu items */
+					}; //aey - push the new truck to the local array
+					localTruckArray.push(newTruckObject);
 				});
-
-			}); //aey - after the trucks are loaded, the main menu should be printed!
-			callback();
+				//aey - after the trucks are loaded, the main menu should be printed! do this in the callback function
+				callback();
+			});
 		}
 		//===========================================================
 		//aey - THIS IS HOW TRUCKS AND MENU ITEMS SHOULD BE FORMATTED 
@@ -457,8 +455,8 @@ Javascript code file
 			//aey - table of info
 			truckhtml += "<table id=\"truckInfoTable\">" + 
 			"<tr class=\"menuFieldEven truckMenuFieldBegin2\">" +
-			"<td class=\"tableInfoColumn1\" id=\"beginTableMenuL\">Address:</td>"+
-			"<td class=\"tableInfoColumn2\" id=\"beginTableMenuR\"> " + truck.address + "</td>" +
+			"<td class=\"tableInfoColumn1 beginTableMenuL\">Address:</td>"+
+			"<td class=\"tableInfoColumn2 beginTableMenuR\"> " + truck.address + "</td>" +
 			"</tr>";
 			
 			truckhtml +=  
@@ -487,8 +485,8 @@ Javascript code file
 			
 			truckhtml += 
 			"<tr class=\"menuFieldOdd\">" +
-			"<td class=\"tableInfoColumn1\" id=\"endTableMenuL\">" + "Status:</td>" +
-			"<td class=\"tableInfoColumn2\" id=\"endTableMenuR\">" + isOpenTextPanel(truck.id) + "</td>" +			
+			"<td class=\"tableInfoColumn1 endTableMenuL\">" + "Status:</td>" +
+			"<td class=\"tableInfoColumn2 endTableMenuR\">" + isOpenTextPanel(truck.id) + "</td>" +
 			"</tr>" +
 			"</table>";
 			

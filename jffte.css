@@ -206,16 +206,16 @@ h1, h2, h3, h4, h5, #header, #menuTitleText, #truckMenuTitleText, #menuSubtitleT
 	border-bottom-right-radius: 20px;
 }
 .beginTableMenuL {
-	border-top-left-radius: 25px!important;
+	border-top-left-radius: 25px;
 }
 .beginTableMenuR {
-	border-top-right-radius: 25px!important;
+	border-top-right-radius: 25px;
 }
 .endTableMenuL {
-	border-bottom-left-radius: 25px!important;
+	border-bottom-left-radius: 25px;
 }
 .endTableMenuR {
-	border-bottom-right-radius: 25px!important;
+	border-bottom-right-radius: 25px;
 }
 #singularMenu {
 	border-radius: 25px;

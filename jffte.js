@@ -521,25 +521,25 @@ Javascript code file
 				
 				/* first column */
 				if(n === 1) { //if only item
-					menutable += "><td class=\"foodInfoColumn1 singularMenuL\">" + n;
+					menutable += "><td class=\"foodInfoColumn1 singularMenuL\">" + i;
 				} else if(i === 0) { //if first item
-					menutable += "><td class=\"foodInfoColumn1 beginTableMenuL\">" + n;
+					menutable += "><td class=\"foodInfoColumn1 beginTableMenuL\">" + i;
 				} else if(i === n-1) { //if last item
-					menutable += "><td class=\"foodInfoColumn1 endTableMenuL\">" + n;
+					menutable += "><td class=\"foodInfoColumn1 endTableMenuL\">" + i;
 				} else {
-					menutable += "><td class=\"foodInfoColumn1\">" + n;
+					menutable += "><td class=\"foodInfoColumn1\">" + i;
 				}
 				menutable += menu[i].name + "</td>";
 				
 				/* second column */
 				if(n === 1) { //if only item
-					menutable += "<td class=\"foodInfoColumn2 singularMenuR\">" + n;
+					menutable += "<td class=\"foodInfoColumn2 singularMenuR\">" + i;
 				} else if(i === 0) { //if first item
-					menutable += "<td class=\"foodInfoColumn2 beginTableMenuR\">" + n;
+					menutable += "<td class=\"foodInfoColumn2 beginTableMenuR\">" + i;
 				} else if(i === n-1) { //if last item
-					menutable += "<td class=\"foodInfoColumn2 endTableMenuR\">" + n;
+					menutable += "<td class=\"foodInfoColumn2 endTableMenuR\">" + i;
 				} else {
-					menutable += "<td class=\"foodInfoColumn2\">" + n;
+					menutable += "<td class=\"foodInfoColumn2\">" + i;
 				}
 				menutable += "  $"+ menu[i].price + "</td></tr>";
 			} menutable += "</table>"

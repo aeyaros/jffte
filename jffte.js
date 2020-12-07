@@ -524,7 +524,7 @@ Javascript code file
 					menutable += "><td class=\"foodInfoColumn1 singularMenuL\">" + i;
 				} else if(i === 0) { //if first item
 					menutable += "><td class=\"foodInfoColumn1 beginTableMenuL\">" + i;
-				} else if(i === n-1) { //if last item
+				} else if(i == n-1) { //if last item
 					menutable += "><td class=\"foodInfoColumn1 endTableMenuL\">" + i;
 				} else {
 					menutable += "><td class=\"foodInfoColumn1\">" + i;
@@ -536,7 +536,7 @@ Javascript code file
 					menutable += "<td class=\"foodInfoColumn2 singularMenuR\">" + i;
 				} else if(i === 0) { //if first item
 					menutable += "<td class=\"foodInfoColumn2 beginTableMenuR\">" + i;
-				} else if(i === n-1) { //if last item
+				} else if(i == n-1) { //if last item
 					menutable += "<td class=\"foodInfoColumn2 endTableMenuR\">" + i;
 				} else {
 					menutable += "<td class=\"foodInfoColumn2\">" + i;

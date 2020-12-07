@@ -450,7 +450,7 @@ Javascript code file
 			//aey - print back button at the top
 			let truckhtml = "<table style=\"width:100%\" id=\"truckInfoBackButton\"><tr><td>" + getBackButton("Back to main menu","main","") + "</td></tr></table><br/>";
 			 
-			truckhtml += "<div style=\"width:100%\" id=\"truckMenuTitleText\">" + truck.name + "</div><br/>";
+			truckhtml += "<div style=\"margin:0 20px\" id=\"truckMenuTitleText\">" + truck.name + "</div><br/>";
 			
 			//aey - table of info
 			truckhtml += "<table id=\"truckInfoTable\">" + 

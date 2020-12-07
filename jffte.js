@@ -507,7 +507,7 @@ Javascript code file
 			
 			//aey - if there's nothing there, then return
 			if(menu[0] === 0){
-				menutable += "<tr class=\"menuFieldSingluar\"><td id=\"singularMenu\">There's&nbsp;nothing on&nbsp;the&nbsp;menu! :&#8288;(</td></tr></table>";
+				menutable += "<tr class=\"menuFieldSingular\"><td id=\"singularMenu\">There's&nbsp;nothing on&nbsp;the&nbsp;menu! :&#8288;(</td></tr></table>";
 				return menutable;
 			}
 			
@@ -515,31 +515,31 @@ Javascript code file
 			for(let i = 0; i < n; i++){ 
 				menutable += "<tr ";
 				
-				if(n === 1) menutable += "class=\"menuFieldSingluar\""; //if only one item
+				if(n === 1) menutable += "class=\"menuFieldSingular\""; //if only one item
 				else if(i % 2 === 0) menutable += "class=\"menuFieldEven\""; //for evens
 				else menutable += "class=\"menuFieldOdd\""; //for odds
 				
 				/* first column */
 				if(n === 1) { //if only item
-					menutable += "><td class=\"foodInfoColumn1 singularMenuL\">"
+					menutable += "><td class=\"foodInfoColumn1 singularMenuL\">" + n;
 				} else if(i === 0) { //if first item
-					menutable += "><td class=\"foodInfoColumn1 beginTableMenuL\">"
+					menutable += "><td class=\"foodInfoColumn1 beginTableMenuL\">" + n;
 				} else if(i === n-1) { //if last item
-					menutable += "><td class=\"foodInfoColumn1 endTableMenuL\">"
+					menutable += "><td class=\"foodInfoColumn1 endTableMenuL\">" + n;
 				} else {
-					menutable += "><td class=\"foodInfoColumn1\">"
+					menutable += "><td class=\"foodInfoColumn1\">" + n;
 				}
 				menutable += menu[i].name + "</td>";
 				
 				/* second column */
 				if(n === 1) { //if only item
-					menutable += "<td class=\"foodInfoColumn2 singularMenuR\">"
+					menutable += "<td class=\"foodInfoColumn2 singularMenuR\">" + n;
 				} else if(i === 0) { //if first item
-					menutable += "<td class=\"foodInfoColumn2 beginTableMenuR\">"
+					menutable += "<td class=\"foodInfoColumn2 beginTableMenuR\">" + n;
 				} else if(i === n-1) { //if last item
-					menutable += "<td class=\"foodInfoColumn2 endTableMenuR\">"
+					menutable += "<td class=\"foodInfoColumn2 endTableMenuR\">" + n;
 				} else {
-					menutable += "<td class=\"foodInfoColumn2\">"
+					menutable += "<td class=\"foodInfoColumn2\">" + n;
 				}
 				menutable += "  $"+ menu[i].price + "</td></tr>";
 			} menutable += "</table>"

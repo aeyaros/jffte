@@ -151,7 +151,7 @@ h1, h2, h3, h4, h5, #header, #menuTitleText, #truckMenuTitleText, #menuSubtitleT
 }
 
 /* aey - font-sizes for tables with information*/
-.tableInfoColumn1, .tableInfoColumn2, .foodInfoColumn1,.foodInfoColumn2 {
+.tableInfoColumn1, .tableInfoColumn2, .foodInfoColumn1, .foodInfoColumn2 {
 	font-size: 15pt;
 	padding: 7px;
 }
@@ -178,7 +178,7 @@ h1, h2, h3, h4, h5, #header, #menuTitleText, #truckMenuTitleText, #menuSubtitleT
 
 /* ==================== menu elements ==================== */
 
-.menuFieldEven, .menuFieldOdd, .menuFieldSingluar { /* aey - for main menu; each field of info about a truck that is printed */
+.menuFieldEven, .menuFieldOdd, .menuFieldSingular { /* aey - for main menu; each field of info about a truck that is printed */
 	width: 100%;
 	height: 30px; /* aey - height of each row in the menu*/
 	vertical-align: center;
@@ -190,7 +190,7 @@ h1, h2, h3, h4, h5, #header, #menuTitleText, #truckMenuTitleText, #menuSubtitleT
 .menuFieldOdd {
 	background-color: rgb(24,62,96);
 }
-.menuFieldSingluar {
+.menuFieldSingular {
 	background-color: rgb(14,52,86); 
 }
 

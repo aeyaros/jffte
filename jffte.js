@@ -58,8 +58,9 @@ Javascript code file
 						}; //aey - push the new truck to the local array
 						localTruckArray.push(newTruckObject);
 				});
-				callback();
+
 			}); //aey - after the trucks are loaded, the main menu should be printed!
+			callback();
 		}
 		//===========================================================
 		//aey - THIS IS HOW TRUCKS AND MENU ITEMS SHOULD BE FORMATTED 

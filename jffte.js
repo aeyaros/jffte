@@ -535,9 +535,9 @@ Javascript code file
 				if(n === 1) { //if only item
 					menutable += "<td class=\"foodInfoColumn2 singularMenuR\">" + i;
 				} else if(i === 0) { //if first item
-					menutable += "<td class=\"foodInfoColumn2 beginTableMenuR\">" + i;
+					menutable += "<td class=\"foodInfoColumn2 beginTableMenuR\">" + i+ "first";
 				} else if(i == n-1) { //if last item
-					menutable += "<td class=\"foodInfoColumn2 endTableMenuR\">" + i;
+					menutable += "<td class=\"foodInfoColumn2 endTableMenuR\">" + i + "last";
 				} else {
 					menutable += "<td class=\"foodInfoColumn2\">" + i;
 				}

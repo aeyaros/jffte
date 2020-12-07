@@ -599,7 +599,7 @@ Javascript code file
 		
 		/* aey - FUNCTION TO USE WHEN CALLING A MENU */
 
-		var savedYScrollPosition = 0;
+		var mainMenuScrollPosition = 0;
 
 		//aey - choose a menu and print the menu.
 		//aey - type can be "main" or "truck"
@@ -614,13 +614,13 @@ Javascript code file
 				printOutAMenu(headerString + setUpMainMenu());
 
 				//aey - restore scroll position of main menu
-				document.getElementById("theMenuPanel").scrollTo(0, savedYScrollPosition);
+				document.getElementById("theMenuPanel").scrollTo(0, mainMenuScrollPosition);
 
 				//aey - reset the zoom for the map
 				resetMap();	
 			} else if (menuType === "truck") {
 				//aey - get scroll position of main menu
-				savedYScrollPosition = document.getElementById("theMenuPanel").scrollTop;
+				mainMenuScrollPosition = document.getElementById("theMenuPanel").scrollTop;
 
 				//aey - get, then print html string for truck's information menu
 				printOutAMenu(headerString + setUpTruckMenu(truckID));

@@ -521,11 +521,11 @@ Javascript code file
 				
 				/* first column */
 				if(n === 1) { //if only item
-					menutable += "><td class=\"foodInfoColumn1\" id=\"singularMenuL\">"
+					menutable += "><td class=\"foodInfoColumn1 singularMenuL\">"
 				} else if(i === 0) { //if first item
-					menutable += "><td class=\"foodInfoColumn1\" id=\"beginTableMenuL\">"
+					menutable += "><td class=\"foodInfoColumn1 beginTableMenuL\">"
 				} else if(i === n-1) { //if last item
-					menutable += "><td class=\"foodInfoColumn1\" id=\"endTableMenuL\">"
+					menutable += "><td class=\"foodInfoColumn1 endTableMenuL\">"
 				} else {
 					menutable += "><td class=\"foodInfoColumn1\">"
 				}
@@ -533,11 +533,11 @@ Javascript code file
 				
 				/* second column */
 				if(n === 1) { //if only item
-					menutable += "<td class=\"foodInfoColumn2\" id=\"singularMenuR\">"
+					menutable += "<td class=\"foodInfoColumn2 singularMenuR\">"
 				} else if(i === 0) { //if first item
-					menutable += "<td class=\"foodInfoColumn2\" id=\"beginTableMenuR\">"
+					menutable += "<td class=\"foodInfoColumn2 beginTableMenuR\">"
 				} else if(i === n-1) { //if last item
-					menutable += "<td class=\"foodInfoColumn2\" id=\"endTableMenuR\">"
+					menutable += "<td class=\"foodInfoColumn2 endTableMenuR\">"
 				} else {
 					menutable += "<td class=\"foodInfoColumn2\">"
 				}

@@ -32,6 +32,10 @@ body {
 	height: 100%;	/* aey - height of the body of the entire app */
 	width: 100%;
 	margin: auto;
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: center;
+	align-items: stretch;
 }
 h1, h2, h3, h4, h5, #header, #menuTitleText, #truckMenuTitleText, #menuSubtitleText {
 	color: rgb(253,193,57);
@@ -43,6 +47,7 @@ h1, h2, h3, h4, h5, #header, #menuTitleText, #truckMenuTitleText, #menuSubtitleT
 #appMenuPanel, #appMapPanel {
 	height: 100%;
 	width:	50%;
+	flex-grow: 1;
 }
 
 #appMenuPanel { /* aey - table containg the button panel and menu panel */
@@ -58,16 +63,14 @@ h1, h2, h3, h4, h5, #header, #menuTitleText, #truckMenuTitleText, #menuSubtitleT
 
 @media only screen and (orientation: portrait) {
 	/* vertical layout for portrait devices */
-	#appMenuPanel {
-		width: 100%;
-		height: 48%;
-		margin: 1.5% 1.5% 0;
+	#app {
+		flex-flow: column nowrap;
 	}
-	#appMapPanel {
-		width: 100%;
-		height: 48%;
 
-		margin: 0 1.5% 1.5%;
+	#appMenuPanel, #appMapPanel {
+		width: 100%;
+		height: 50%;
+		margin: 0;
 	}
 }
 

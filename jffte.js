@@ -598,7 +598,9 @@ Javascript code file
 		}
 		
 		/* aey - FUNCTION TO USE WHEN CALLING A MENU */
-				
+
+		var savedYScrollPosition = 0;
+
 		//aey - choose a menu and print the menu.
 		//aey - type can be "main" or "truck"
 		//aey - if main, just provide the type "main"
@@ -610,9 +612,16 @@ Javascript code file
 			if(menuType === "main") {
 				//aey - get, then print html string for main menu (list of trucks)
 				printOutAMenu(headerString + setUpMainMenu());
+
+				//aey - restore scroll position of main menu
+				document.getElementById("theMenuPanel").scrollTo(0, savedYScrollPosition);
+
 				//aey - reset the zoom for the map
 				resetMap();	
 			} else if (menuType === "truck") {
+				//aey - get scroll position of main menu
+				savedYScrollPosition = document.getElementById("theMenuPanel").scrollTop;
+
 				//aey - get, then print html string for truck's information menu
 				printOutAMenu(headerString + setUpTruckMenu(truckID));
 				//aey - scroll up to the top of the truck's menu after loading

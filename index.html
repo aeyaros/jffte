@@ -71,12 +71,12 @@
 					//aey - load the main menu
 					pickAMenu("main","");
 					//aey - load the map
-					var script = document.createElement('script');
+					let script = document.createElement('script');
 					script.src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyAEZzn1fHUb_bqYXNIFUS2vDQVW9PqPluk&callback=initMap";
-					document.getElementsByTagName('endScript')[0].appendChild(script);
+					document.getElementById("endScript").appendChild(script);
 				});
 			</script>			
-		</div><endScript></endscript>
+		</div><div id="endScript"></div>
 		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAEZzn1fHUb_bqYXNIFUS2vDQVW9PqPluk&callback=initMap" asyncv
 			defer></script>		
 	</body>

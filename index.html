@@ -67,15 +67,14 @@
 			<script>
 				/* aey - since loading takes time, I'm going to just delay until things are ready */
 				/* aey - load the trucks from firebase; this will also print out the main menu */
-				loadTrucks();
-				setTimeout(function () {
+				loadTrucks(function () {
 					//aey - load the main menu
 					pickAMenu("main","");
 					//aey - load the map
 					var script = document.createElement('script');
 					script.src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyAEZzn1fHUb_bqYXNIFUS2vDQVW9PqPluk&callback=initMap";
 					document.getElementsByTagName('endScript')[0].appendChild(script);
-				}, 2000);
+				});
 			</script>			
 		</div><endScript></endscript>
 		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAEZzn1fHUb_bqYXNIFUS2vDQVW9PqPluk&callback=initMap" asyncv

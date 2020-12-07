@@ -30,7 +30,9 @@ Javascript code file
 		//===============================
 		//aey - load trucks from firebase
 		//===============================
-		function loadTrucks() {			
+		const blankcallback = function() {};
+
+		function loadTrucks(callback=blankcallback) {
 			// aey - loop through the array in the realtime database
 			let downloadedData = firebase.database().ref("JSONarray").orderByKey();
 			//localTruckArray = [];
@@ -56,6 +58,7 @@ Javascript code file
 						}; //aey - push the new truck to the local array
 						localTruckArray.push(newTruckObject);
 				});
+				callback();
 			}); //aey - after the trucks are loaded, the main menu should be printed!
 		}
 		//===========================================================

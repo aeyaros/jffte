@@ -70,7 +70,7 @@ var blankFoodItemObject = {
 function saveTrucks() {
 	if(!isArrayEmpty(localTruckArray)) {//if there are trucks
 		//aey - create JSON object for all trucks
-		var allTrucks = {};
+		let allTrucks = {};
 						
 		for(let i = 0; i < localTruckArray.length; i++) {
 			eval("allTrucks.truck" + i + " = localTruckArray[i];");
@@ -84,16 +84,16 @@ function saveTrucks() {
 //aey - load trucks from file
 function loadTrucks() {			
 	// aey - loop through the array in the realtime database
-	var downloadedData = firebase.database().ref("JSONarray").orderByKey();
+	let downloadedData = firebase.database().ref("JSONarray").orderByKey();
 	localTruckArray = [0];
-	var index = 0;
+	let index = 0;
 	downloadedData.once("value")
 		.then(function(snapshot) {
 			snapshot.forEach(function(childSnapshot) { // aey - loop through json array in database
 				//var field = childSnapshot.key;
-				var fieldData = childSnapshot.val();
+				let fieldData = childSnapshot.val();
 				
-				if(index == 0) {
+				if(index === 0) {
 					localTruckArray[0] = fieldData; // aey - if empty, replace first item "0"
 				} else {
 					localTruckArray.push(fieldData); // aey - otherwise, just push
@@ -111,8 +111,7 @@ function loadTrucks() {
 // aey - for empty arrays, we are using [0]; aka the item at index 0 is "0"
 // aey - just have to check each time you add something to make sure it is either the first thing to be added (where you overwrite the "0") or not, in which case you just push the new item, whether it is a truck or a food item
 function isArrayEmpty(arrayObject) {
-	if(arrayObject.length == 1 && arrayObject[0] == 0) return true;
-	else return false;
+	return arrayObject.length === 1 && arrayObject[0] === 0;
 }
 
 
@@ -121,7 +120,7 @@ function doesTruckExist(truckID) {
 	if(isArrayEmpty(localTruckArray)) return false;
 	else {
 		for(let i = 0; i < localTruckArray.length; i++) {
-			if(localTruckArray[i].id == truckID) return true; //id was found
+			if(localTruckArray[i].id === truckID) return true; //id was found
 		}
 		
 		return false; //id was not found
@@ -132,13 +131,13 @@ function doesTruckExist(truckID) {
 function doesMenuItemExist(truckID, name) {
 	//aey - does truck exist
 	if(doesTruckExist(truckID)) { // aey - if truck exists 
-		var truck = getTruckWithID(truckID);
+		let truck = getTruckWithID(truckID);
 		if(isArrayEmpty(truck.menu)) { // aey - if menu is empty
 			outputMessage("1");
 			return false;
 		} else { // aey - if menu exists
 			for(let i = 0; i < truck.menu.length; i++){
-				if(truck.menu[i].name == name) {
+				if(truck.menu[i].name === name) {
 					return true;
 				}
 			}
@@ -152,18 +151,18 @@ function doesMenuItemExist(truckID, name) {
 //aey - returns index of menu item in a truck, or -1 if error
 function getIndexOfMenuItem(truckID, name) {
 	//aey - make sure truck exists
-	if(doesTruckExist(truckID) == false) {
+	if(doesTruckExist(truckID) === false) {
 		return -1;
 	}
 	//aey - make sure menu exists
-	var truck = getTruckWithID(truckID);
+	let truck = getTruckWithID(truckID);
 	if(isArrayEmpty(truck.menu)){
 		return -1;
 	}
 	
 	if(doesMenuItemExist(truckID, name)) {
 		for(let i = 0; i < truck.menu.length; i++){
-			if(truck.menu[i].name == name){ //aey - if found return index
+			if(truck.menu[i].name === name){ //aey - if found return index
 				return i;
 			}
 		}
@@ -176,7 +175,7 @@ function getIndexOfMenuItem(truckID, name) {
 function findTruckWithID (truckID) {
 	if(isArrayEmpty(localTruckArray)) return -2; // aey - if no trucks
 	for(let i = 0; i < localTruckArray.length; i++) {
-		if(localTruckArray[i].id == truckID) return i; // aey - id was found, return where it was found
+		if(localTruckArray[i].id === truckID) return i; // aey - id was found, return where it was found
 	}
 	return -1;
 }
@@ -189,7 +188,7 @@ function getTruckWithID(truckID) {
 	} else if(!doesTruckExist(truckID)) {
 		outputMessage("Truck doesn't exist")
 	} else {
-		var index = findTruckWithID(truckID);
+		let index = findTruckWithID(truckID);
 		return localTruckArray[index];
 	}
 	return -1;
@@ -197,25 +196,25 @@ function getTruckWithID(truckID) {
 
 //aey - parses a value based a specified type, returns true if it can be parsed, otherwise returns false
 function parseValue(fieldType, fieldValue) {
-	var valueIsOK = 0;
+	let valueIsOK = 0;
 	
 	switch (fieldType) {
 		case "text": //name, location, address, or cuisine
-			if( fieldValue == '' ) {
+			if( fieldValue === '' ) {
 				outputMessage("Text values cannot be blank");
 			} else {
 				valueIsOK = 1;
 			}
 			break;
 		case "price":
-			if( parseFloat(fieldValue) == NaN || fieldValue == '' ){ //aey - price must be number
+			if( isNaN(parseFloat(fieldValue)) || fieldValue === '' ){ //aey - price must be number
 				outputMessage("Item price must be a number")
 			} else {
 				valueIsOK = 1;
 			}
 			break;
 		case "lat":
-			if(	(parseFloat(fieldValue) == NaN || fieldValue == '') ||
+			if(	(isNaN(parseFloat(fieldValue)) || fieldValue === '') ||
 				(parseFloat(fieldValue) < -90  || parseFloat(fieldValue) > 90)) {
 				outputMessage("Latitude must be a number from -90 to 90");
 			} else {
@@ -223,7 +222,7 @@ function parseValue(fieldType, fieldValue) {
 			}
 			break;
 		case "lng":
-			if(	(parseFloat(fieldValue) == NaN || fieldValue == '') ||
+			if(	(isNaN(parseFloat(fieldValue)) || fieldValue === '') ||
 				(parseFloat(fieldValue) < -180  || parseFloat(fieldValue) > 180)) {
 				outputMessage("Latitude must be a number from -90 to 90");
 			} else {
@@ -231,7 +230,7 @@ function parseValue(fieldType, fieldValue) {
 			}
 			break;
 		case "hr":
-			if(	(parseInt(fieldValue) == NaN || fieldValue == '' ) || 
+			if(	(isNaN(parseInt(fieldValue)) || fieldValue === '' ) ||
 				(parseInt(fieldValue) < 0    || parseInt(fieldValue) > 23)) {
 				outputMessage("An hour must be a integer, and be between 0 and 23");
 			} else {
@@ -240,7 +239,7 @@ function parseValue(fieldType, fieldValue) {
 			break;
 		case "min":
 			if(	
-				(parseInt(fieldValue) == NaN || fieldValue == '' ) || 
+				(isNaN(parseInt(fieldValue)) || fieldValue === '' ) ||
 				(parseInt(fieldValue) < 0    || parseInt(fieldValue) > 59)) {
 					outputMessage("A minute must be a integer, and be between 0 and 59");
 			} else {
@@ -251,11 +250,7 @@ function parseValue(fieldType, fieldValue) {
 			outputMessage(fieldType + " is not a valid field type");
 			break;
 	}
-	if(valueIsOK == 1) {
-		return true;
-	} else {
-		return false;
-	}
+	return valueIsOK === 1;
 }
 
 
@@ -300,32 +295,32 @@ function addTruck() {
 	*/
 	
 	//aey - check if certain values are valid and in range and not blank
-	if( parseValue( "text" , $("#id").val() ) == false ) {
+	if( parseValue( "text" , $("#id").val() ) === false ) {
 		outputMessage("ID can't be blank.");
 	} else if(doesTruckExist($("#id").val())) {
 		outputMessage("ID " + $("#id").val() + " already in use.");
-	} else if(parseValue("text",$("#name").val()) == false) {
+	} else if(parseValue("text",$("#name").val()) === false) {
 		outputMessage("Name cannot be blank");
-	} else if(parseValue("text",$("#loca").val()) == false) {
+	} else if(parseValue("text",$("#loca").val()) === false) {
 		outputMessage("Location description cannot be blank");
-	} else if(parseValue("text",$("#addr").val()) == false) {
+	} else if(parseValue("text",$("#addr").val()) === false) {
 		outputMessage("Street address cannot be blank");
-	} else if(parseValue("text",$("#cuis").val()) == false) {
+	} else if(parseValue("text",$("#cuis").val()) === false) {
 		outputMessage("Cuisine cannot be blank");
-	} else if(parseValue("lat",$("#lat").val()) == false) {
+	} else if(parseValue("lat",$("#lat").val()) === false) {
 		outputMessage("Latitude must be a number from -90 to 90");
-	} else if(parseValue("lng",$("#lng").val()) == false) {
+	} else if(parseValue("lng",$("#lng").val()) === false) {
 		outputMessage("Longitude must be a number from -180 to 180");
-	} else if(parseValue("hr",$("#hourO").val()) == false) {
+	} else if(parseValue("hr",$("#hourO").val()) === false) {
 		outputMessage("Hour open must be a integer, and be between 0 and 23");
-	} else if(parseValue("hr",$("#hourC").val()) == false) {
+	} else if(parseValue("hr",$("#hourC").val()) === false) {
 		outputMessage("Hour closed must be a integer, and be between 0 and 23");
-	} else if(parseValue("min",$("#minuteO").val()) == false) {
+	} else if(parseValue("min",$("#minuteO").val()) === false) {
 		outputMessage("Minute open must be a integer, and be between 0 and 59");
-	} else if(parseValue("min",$("#minuteC").val()) == false) {
+	} else if(parseValue("min",$("#minuteC").val()) === false) {
 		outputMessage("Minute closed must be a integer, and be between 0 and 59");
 	} else { // aey - all values are OK
-		var newTruckObject = { 
+		let newTruckObject = {
 			"id": String($("#id").val()),
 			"name": String($("#name").val()),
 			"location": String($("#loca").val()), 
@@ -352,7 +347,7 @@ function addTruck() {
 
 //aey - add a new menu item
 function addMenuItem() {
-	var arrayLocation = findTruckWithID($("#id2").val());
+	let arrayLocation = findTruckWithID($("#id2").val());
 	//aey - error checking
 	
 	/* aey - old code: leaving here just in case
@@ -372,19 +367,19 @@ function addMenuItem() {
 	*/
 	
 	
-	if( parseValue("text",$("#itemName").val()) == false) {
+	if( parseValue("text",$("#itemName").val()) === false) {
 		outputMessage("Food item name cannot be blank");
-	} else if (arrayLocation == -1) {
+	} else if (arrayLocation === -1) {
 		outputMessage("Error: ID not found")
-	} else if (arrayLocation == -2) {
+	} else if (arrayLocation === -2) {
 		outputMessage("No trucks in local array")
 	} else if (doesMenuItemExist( $("#id2").val() , $("#itemName").val())) {
 		outputMessage("Menu item already exists")
-	} else if( parseValue("price",$("#itemPrice").val()) == false){ //aey - price must be number
+	} else if( parseValue("price",$("#itemPrice").val()) === false){ //aey - price must be number
 		outputMessage("Item price must be a number")
 	}
 	else { //aey - else, create the json 
-		var newMenuItem = {
+		let newMenuItem = {
 			"name": String($("#itemName").val()),
 			"price": $("#itemPrice").val()
 		}
@@ -401,8 +396,8 @@ function addMenuItem() {
 
 // aey - given an index, get a truck from the array
 function getTruckString(i) {
-	var truck = localTruckArray[i];
-	var truckString = "";
+	let truck = localTruckArray[i];
+	let truckString = "";
 	truckString += "id: " + truck.id + "<br/>";
 	truckString += "name: " + truck.name + "<br/>";
 	truckString += "location: " + truck.location + "<br/>";
@@ -444,7 +439,7 @@ function printTrucks() {
 		outputMessage("No trucks loaded");
 		outputToDisplay("No trucks loaded");
 	} else {
-		var truckList = "";
+		let truckList = "";
 		for(let i = 0; i < localTruckArray.length; i++) {
 			truckList += getTruckString(i) + "<br/>";
 		}
@@ -466,14 +461,14 @@ function outputMessage (string) {
 
 //aey - given an id, remove a truck
 function removeTruck () {
-	var index = findTruckWithID($("#removeTruck").val());
+	let index = findTruckWithID($("#removeTruck").val());
 	
-	if(index == -1) {
+	if(index === -1) {
 		outputMessage("Error: ID not found")
-	} else if(index == -2 ){
+	} else if(index === -2 ){
 		outputMessage("No trucks in local array")
 	} else {
-		if(localTruckArray.length == 1) { //if it is the last item
+		if(localTruckArray.length === 1) { //if it is the last item
 			localTruckArray = [0]; //set to our empty array format
 		} else {
 			localTruckArray.splice(index, 1);
@@ -484,21 +479,21 @@ function removeTruck () {
 
 //aey - remove a menu item, given a truck id and a menu item name
 function removeMenuItem() {
-	var id = $("#removeMenuItemID").val();
-	var name = $("#removeMenuItemName").val();
+	let id = $("#removeMenuItemID").val();
+	let name = $("#removeMenuItemName").val();
 	//aey - first find the truck
-	var truckindex = findTruckWithID(id);
+	let truckindex = findTruckWithID(id);
 	
 	//aey - error checking
-	if(truckindex == -1) {
+	if(truckindex === -1) {
 		outputMessage("Error: ID not found")
-	} else if(truckindex == -2 ) {
+	} else if(truckindex === -2 ) {
 		outputMessage("No trucks in local array")
 	} else {
 		//aey - does menu item exist				
 		if(doesMenuItemExist(id, name)) { //aey - if item is there
-			var menuindex = getIndexOfMenuItem(id, name); //aey - get the index					
-			if(localTruckArray[truckindex].menu.length == 1) { // aey - if only one truck left, change it to 0
+			let menuindex = getIndexOfMenuItem(id, name); //aey - get the index
+			if(localTruckArray[truckindex].menu.length === 1) { // aey - if only one truck left, change it to 0
 				localTruckArray[truckindex].menu[0] = 0;
 			} else {
 				localTruckArray[truckindex].menu.splice(menuindex, 1); //aey - otherwise, just splice the array
@@ -531,24 +526,24 @@ Enter new text:
 //aey - edit a truck based on ID and field
 function editTruck() {
 	//aey - get the id the user asked for and check if it exists
-	var editID = $("#id3").val();
+	let editID = $("#id3").val();
 	if(!doesTruckExist(editID)) {
 		outputMessage("ID does not exist");
 		return -1;
 	} else {
 		//aey - get user value input and make sure it isn't blank
-		var editFieldValue = $("#newField").val();
+		let editFieldValue = $("#newField").val();
 		outputMessage("hiiii");
-		if(editFieldValue = ''){
+		if(editFieldValue === ''){
 			outputMessage("New value cannot be blank");
 			return -1;
 		} else {
 			//aey - get the text into a variable
-			var userChoice = document.getElementById("editDrop").value;//$("#editFieldsDropdown").text;
-			var index = findTruckWithID(editID);
+			let userChoice = document.getElementById("editDrop").value;//$("#editFieldsDropdown").text;
+			let index = findTruckWithID(editID);
 			//aey - based on the selected drop-down option, parse the value
 			
-			var couldParse = true;
+			let couldParse = true;
 			switch (userChoice) {
 				case "name":
 					if(parseValue("text", editFieldValue)) {

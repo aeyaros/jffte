@@ -16,8 +16,8 @@ CSS file
 
 html, body {
 	overflow: hidden;
-	margin: 0px;
-	padding: 0px;
+	margin: 0;
+	padding: 0;
 	height: 100%;
 	width: 100%;
 }
@@ -50,12 +50,10 @@ h1, h2, h3, h4, h5, #header, #menuTitleText, #truckMenuTitleText, #menuSubtitleT
 #appMenuPanel { /* aey - table containg the button panel and menu panel */
 	 	/* aey - width of the side panel */
 	vertical-align: text-top;
-	margin: 1.5%;
-	margin-left: 0%;
+	margin: 1.5% 1.5% 1.5% 0;
 }
 #appMapPanel {  /* aey - this is where the map div is located */
-	margin: 1.5%;
-	margin-right: 0%;
+	margin: 1.5% 0 1.5% 1.5%;
 }
 		
 /* ==================== responsive formatting ==================== */
@@ -65,15 +63,13 @@ h1, h2, h3, h4, h5, #header, #menuTitleText, #truckMenuTitleText, #menuSubtitleT
 	#appMenuPanel {
 		width: 100%;
 		height: 48%;
-		margin: 1.5%;
-		margin-bottom: 0%;
+		margin: 1.5% 1.5% 0;
 	}
 	#appMapPanel {
 		width: 100%;
 		height: 48%;
-		
-		margin: 1.5%;
-		margin-top: 0%;
+
+		margin: 0 1.5% 1.5%;
 	}
 }
 
@@ -131,7 +127,7 @@ h1, h2, h3, h4, h5, #header, #menuTitleText, #truckMenuTitleText, #menuSubtitleT
 	text-transform: uppercase;
 	width: 100%;
 	margin-top: 10px;
-	margin- bottom: 20px;
+	margin-bottom: 20px;
 }
 .button1, #mainMenuTruckOpen, #mainMenuTruckClosed {
 	border-radius: 20px;
@@ -148,10 +144,9 @@ h1, h2, h3, h4, h5, #header, #menuTitleText, #truckMenuTitleText, #menuSubtitleT
 
 #mainMenuTable, #truckFoodTable, #truckInfoTable, #truckInfoBackButton { /* aey - menus where the tables are printed */
 	width: 100%;
-	padding: 20px;
 	max-width: 768px;
 	margin: auto;
-	padding-top: 0px;
+	padding: 0 20px 20px;
 }
 
 /* aey - font-sizes for tables with information*/
@@ -185,9 +180,8 @@ h1, h2, h3, h4, h5, #header, #menuTitleText, #truckMenuTitleText, #menuSubtitleT
 .menuFieldEven, .menuFieldOdd, .menuFieldSingluar { /* aey - for main menu; each field of info about a truck that is printed */
 	width: 100%;
 	height: 30px; /* aey - height of each row in the menu*/
-	padding: 10px;
 	vertical-align: center;
-	padding-left: 25px;
+	padding: 10px 10px 10px 25px;
 }
 .menuFieldEven {
 	background-color: rgb(14,52,86); 
@@ -223,10 +217,7 @@ h1, h2, h3, h4, h5, #header, #menuTitleText, #truckMenuTitleText, #menuSubtitleT
 	border-bottom-right-radius: 25px;
 }
 #singularMenu {
-	border-top-left-radius: 25px;
-	border-bottom-left-radius: 25px;
-	border-top-right-radius: 25px;
-	border-bottom-right-radius: 25px;
+	border-radius: 25px;
 	padding: 25px;
 }
 #singularMenuL {
@@ -243,7 +234,6 @@ h1, h2, h3, h4, h5, #header, #menuTitleText, #truckMenuTitleText, #menuSubtitleT
 	font-size: 28pt;
 	font-weight: bold;
 	font-family: 'Open Sans Condensed','Barlow', sans-serif;
-	font-style: 'Condensed';
 	text-transform: uppercase;
 	letter-spacing: 1px;
 }
@@ -252,7 +242,6 @@ h1, h2, h3, h4, h5, #header, #menuTitleText, #truckMenuTitleText, #menuSubtitleT
 	font-size: 28pt;
 	font-weight: bold;
 	font-family: 'Open Sans Condensed','Barlow Semi Condensed', sans-serif;
-	font-style: 'Condensed';
 	text-transform: uppercase;
 	letter-spacing: 1px;
 	padding-bottom: 10px;
@@ -270,8 +259,8 @@ h1, h2, h3, h4, h5, #header, #menuTitleText, #truckMenuTitleText, #menuSubtitleT
 	text-align: center;
 	vertical-align: center;
 	border-radius: 20px;
-	margin-bottom: 0px;
-	letter-spacing: 0px;
+	margin-bottom: 0;
+	letter-spacing: 0;
 }
 #mainMenuTruckOpen, #mainMenuTruckClosed { /* for truck menu */
 	width: 90%;
@@ -303,6 +292,6 @@ h1, h2, h3, h4, h5, #header, #menuTitleText, #truckMenuTitleText, #menuSubtitleT
 	border: 1px solid rgb(10,0,0);
 	text-align: center;
 	font-weight: 400;
-	letter-spacing: .5px;
+	letter-spacing: .05em;
 	float: right;
 }

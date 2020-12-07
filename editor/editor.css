@@ -51,7 +51,7 @@ html, body {
 	background-color: #eeeeee;
 	height: 100%;
 	margin-right: 15px;
-} #additionTable {
+} .additionTable {
 	border: none;
 	vertical-align: bottom;
 } .addTableTextArea {
@@ -65,7 +65,7 @@ html, body {
 	font-size: 12pt;
 	color: black;
 	background-color: white;
-	border: 1.5px solid black;
+	border: 2px solid black;
 	border-radius: 20px;
 } button:hover {
 	color: white;
@@ -82,7 +82,7 @@ html, body {
 } #refreshbutton:hover {
 	color: white;
 	background-color: #ff0000;
-} #additionTable td {
+} .additionTable td {
 	background-color: #f2f2f2;
 } hr.line1 {
 	border: 0;

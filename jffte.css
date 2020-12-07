@@ -138,10 +138,8 @@ h1, h2, h3, h4, h5, #header, #menuTitleText, #truckMenuTitleText, #menuSubtitleT
 
 #header{
 	width: 100%;
-	max-width: 768px;
 	background-color: rgb(4,42,76);
 	box-shadow: 0 0 10px rgb(4,42,76);
-	margin: auto;
 	position: -webkit-sticky;
 	position: sticky;
 	top: 0;

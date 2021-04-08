@@ -65,7 +65,7 @@ h1, h2, h3, h4, h5, #header, #menuTitleText, #truckMenuTitleText, #menuSubtitleT
 
 /* ==================== responsive formatting ==================== */
 
-@media only screen and (orientation: portrait) {
+@media (orientation: portrait) {
     /* vertical layout for portrait devices */
     #app {
         flex-flow: column nowrap;
@@ -78,7 +78,7 @@ h1, h2, h3, h4, h5, #header, #menuTitleText, #truckMenuTitleText, #menuSubtitleT
     }
 }
 
-@media only screen and (min-width: 1000px) {
+@media (min-width: 1000px) {
     body {
         font-size: 14pt !important;
     }

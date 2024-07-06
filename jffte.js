@@ -13,7 +13,7 @@ Javascript code file
 //==============================
 // aey - Initialize Firebase
 var config = {
-	apiKey: "AIzaSyD0JmamdWMQFN0eI-J45TKS3MqVk8_zAzk",
+	apiKey: "",
 	authDomain: "truck-info.firebaseapp.com",
 	databaseURL: "https://truck-info.firebaseio.com",
 	projectId: "truck-info",
